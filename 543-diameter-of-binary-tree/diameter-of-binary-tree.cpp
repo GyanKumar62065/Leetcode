@@ -10,29 +10,23 @@
  * };
  */
 class Solution {
+    int getHeightAndDiameter(TreeNode *root , int &currDia){
 
-int height(TreeNode *root){
-    if(!root) return 0;
-    return max(height(root->left) , height(root->right))+1;
-}
+        if(!root) return 0;
+        int lh = getHeightAndDiameter(root->left , currDia); // left sub tree height 
+        int rh = getHeightAndDiameter(root->right , currDia); // right sub tree hight
+        // Updating diameter at every node 
+        currDia = max(currDia , lh + rh);
+        return (1 + max(lh , rh) ); // returning the height of current sub tree
+    }
 
-int ans = 0;
-void helper(TreeNode* root){
-    
-    if(!root) return;
-    int lh = height(root->left);
-    int rh = height(root->right);
-    ans = max(ans , lh + rh);
-    helper(root->left);
-    helper(root->right);
-}
-
-    
-    
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        helper(root);
-        return ans;
 
+        int maxi = 0;
+        int h = getHeightAndDiameter(root , maxi);
+
+        return maxi;
+        
     }
 };
