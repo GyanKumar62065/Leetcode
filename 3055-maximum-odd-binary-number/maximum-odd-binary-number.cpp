@@ -1,7 +1,6 @@
 class Solution {
 public:
     string maximumOddBinaryNumber(string s) {
-
         int onesCnt = 0;
         for(auto it : s) {
             if(it=='1') onesCnt++;
@@ -13,11 +12,6 @@ public:
         ans += '1';
         onesCnt--;
         while(onesCnt--) ans = '1' + ans;
-      
-
-  
         return ans;
-
-        
     }
 };
