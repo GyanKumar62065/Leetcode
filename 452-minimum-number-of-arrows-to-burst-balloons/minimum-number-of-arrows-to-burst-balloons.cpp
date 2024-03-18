@@ -14,7 +14,6 @@ public:
 
             if(xs <= hold){
                 hold = min(hold , xe);
-                continue;
             }else{
           
                 hold = xe;
