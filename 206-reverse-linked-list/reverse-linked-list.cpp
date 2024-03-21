@@ -18,7 +18,7 @@ public:
 
         ListNode *ans = nullptr;
 
-        while(temp != nullptr){
+        while(temp){
             ListNode *currNode = temp;
             temp = temp->next;
             currNode->next = ans;
