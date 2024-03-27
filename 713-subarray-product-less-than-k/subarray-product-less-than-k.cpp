@@ -7,7 +7,6 @@ public:
         }
 
         int ans = 0;
-        unordered_map<int,int>mp;
 
         long long int curr = 1;
         int cnt = 0;
