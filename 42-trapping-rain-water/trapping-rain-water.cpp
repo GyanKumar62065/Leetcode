@@ -33,7 +33,6 @@ public:
 
 
         for(int i =1; i < n-1; i++){
-            // min(right[i] , left[i-1]) > (height[i] ? ans += height[i] - min(right[i] , left[i-1]) ) : ans += 0;
             int mini = min(right[i] , left[i-1]);
             if(mini > height[i]){
                 ans += mini - height[i];
