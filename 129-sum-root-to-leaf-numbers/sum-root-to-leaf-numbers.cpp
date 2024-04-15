@@ -12,25 +12,31 @@
 class Solution {
 public:
 
-    void preOrder(TreeNode* root , int &currSum , int &finalSum){
-        if(!root) return;
-        currSum *= 10;
-        currSum += root->val;
-        if(!root->left && !root->right){
-            finalSum += currSum;
+    void preOrder(TreeNode *root , int &ans , int &curr){
+        // if((root->left == NULL) && (root->right == NULL)){
+        if(root == NULL){
+            // ans += curr;
+            return;
         }
-        preOrder(root->left , currSum , finalSum);
-        preOrder(root->right, currSum , finalSum);
-        currSum -= root->val;
-        currSum /= 10;
+        int data = root->val;
+        curr *= 10;
+        curr += data;
+        cout << curr << endl;
+        if(!root->left && !root->right){
+            ans += curr;
+        }
+
+        preOrder(root->left , ans , curr);
+        preOrder(root->right , ans , curr);
+        curr -= data;
+        curr /= 10;
         
     }
 
     int sumNumbers(TreeNode* root) {
-        if(!root) return 0;
-        int ans = 0;
-        int currSum = 0;
-        preOrder(root , currSum , ans);
-        return ans; 
+
+        int ans = 0 , curr = 0;
+        preOrder(root , ans , curr);
+        return ans;
     }
 };
