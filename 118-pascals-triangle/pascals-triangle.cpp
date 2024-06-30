@@ -14,11 +14,26 @@ public:
     }
 
     vector<vector<int>> generate(int numRows) {
+        // vector<vector<int>>ans;
+        // for(int i = 1; i <= numRows; i++ ){
+        //     vector<int>res;
+        //     for(int j = 1; j<= i; j++){
+        //         res.push_back(nCr(i-1 , j-1));
+        //     }
+        //     ans.push_back(res);
+        // }
+        // return ans;
+
+        // Optimization
+
         vector<vector<int>>ans;
         for(int i = 1; i <= numRows; i++ ){
             vector<int>res;
-            for(int j = 1; j<= i; j++){
-                res.push_back(nCr(i-1 , j-1));
+            int currans = 1;
+            res.push_back(currans);
+            for(int j = 1; j < i; j++){
+                currans = (currans * (i - j)) / j;
+                res.push_back(currans);
             }
             ans.push_back(res);
         }
