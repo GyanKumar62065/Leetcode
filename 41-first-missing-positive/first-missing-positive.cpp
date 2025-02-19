@@ -28,13 +28,11 @@ public:
             temp.push_back(it);
         }
 
-        cout << temp.size() << endl;
         if(temp.empty() || temp[0] > 1) return 1;
         int ans = temp[0];
         for(int i = 0; i < temp.size()-1;i++){
             if(temp[i+1] - temp[i] > 1){
                 ans = temp[i]+1;
-                cout << "Here";
                 break;
             }
         }
